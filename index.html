@@ -12,9 +12,9 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            font-family: 'Courier New', 'Consolas', monospace;
+            background: #0a0e27;
+            color: #e0e0e0;
             line-height: 1.6;
         }
         
@@ -43,50 +43,56 @@
         
         .version-badge {
             display: inline-block;
-            background: #4CAF50;
-            color: white;
+            background: #00ff41;
+            color: #0a0e27;
             padding: 10px 20px;
-            border-radius: 25px;
+            border-radius: 5px;
             margin: 20px 0;
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(0,255,65,0.3);
+            border: 2px solid #00ff41;
         }
         
         .main-content {
-            background: white;
-            border-radius: 15px;
+            background: #1a1f3a;
+            border-radius: 10px;
             padding: 40px;
             margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 0 30px rgba(0,255,65,0.1);
+            border: 1px solid #00ff41;
         }
         
         .download-section {
             text-align: center;
             padding: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
+            background: #1a1f3a;
+            border-radius: 10px;
             margin: 30px 0;
-            color: white;
+            color: #e0e0e0;
+            border: 2px solid #00ff41;
+            box-shadow: 0 0 30px rgba(0,255,65,0.2);
         }
         
         .download-btn {
             display: inline-block;
-            background: #4CAF50;
-            color: white;
+            background: #00ff41;
+            color: #0a0e27;
             padding: 20px 50px;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 5px;
             font-size: 1.5em;
             font-weight: bold;
             margin: 20px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 0 20px rgba(0,255,65,0.4);
+            border: 2px solid #00ff41;
         }
         
         .download-btn:hover {
-            background: #45a049;
+            background: transparent;
+            color: #00ff41;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 0 30px rgba(0,255,65,0.6);
         }
         
         .features {
@@ -98,15 +104,17 @@
         
         .feature-card {
             padding: 30px;
-            background: #f8f9fa;
+            background: #0f1729;
             border-radius: 10px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid #00ff41;
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0,255,65,0.3);
+            border-color: #00ff41;
         }
         
         .feature-icon {
@@ -115,39 +123,40 @@
         }
         
         .feature-card h3 {
-            color: #667eea;
+            color: #00ff41;
             margin-bottom: 10px;
         }
         
         .steps {
-            background: #f8f9fa;
+            background: #0f1729;
             padding: 30px;
             border-radius: 10px;
             margin: 30px 0;
+            border: 1px solid #00ff41;
         }
         
         .steps h2 {
-            color: #667eea;
+            color: #00ff41;
             margin-bottom: 20px;
         }
         
         .step {
             padding: 20px;
             margin: 15px 0;
-            background: white;
-            border-left: 4px solid #667eea;
+            background: #1a1f3a;
+            border-left: 4px solid #00ff41;
             border-radius: 5px;
         }
         
         .step-number {
             display: inline-block;
-            background: #667eea;
-            color: white;
+            background: #00ff41;
+            color: #0a0e27;
             width: 35px;
             height: 35px;
             line-height: 35px;
             text-align: center;
-            border-radius: 50%;
+            border-radius: 5px;
             margin-right: 15px;
             font-weight: bold;
         }
@@ -157,15 +166,16 @@
         }
         
         .changelog h2 {
-            color: #667eea;
+            color: #00ff41;
             margin-bottom: 20px;
         }
         
         .version-item {
             padding: 20px;
             margin: 15px 0;
-            background: #f8f9fa;
+            background: #0f1729;
             border-radius: 10px;
+            border: 1px solid #00ff41;
         }
         
         .version-header {
@@ -178,11 +188,11 @@
         .version-number {
             font-size: 1.2em;
             font-weight: bold;
-            color: #667eea;
+            color: #00ff41;
         }
         
         .version-date {
-            color: #666;
+            color: #888;
             font-size: 0.9em;
         }
         
@@ -205,31 +215,70 @@
             display: inline-block;
             margin: 20px;
             padding: 10px 30px;
-            background: rgba(255,255,255,0.2);
-            color: white;
+            background: #1a1f3a;
+            color: #00ff41;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 5px;
             transition: all 0.3s ease;
+            border: 2px solid #00ff41;
         }
         
         .github-link:hover {
-            background: rgba(255,255,255,0.3);
+            background: #00ff41;
+            color: #0a0e27;
+            box-shadow: 0 0 20px rgba(0,255,65,0.4);
+        }
+        
+        h2 {
+            color: #00ff41;
+        }
+        
+        h3 {
+            color: #00ff41;
+        }
+        
+        a {
+            color: #00ff41;
+        }
+        
+        a:hover {
+            color: #00ff41;
+            text-decoration: underline;
         }
         
         .system-requirements {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
+            background: #1a1f3a;
+            border: 2px solid #00ff41;
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
         }
         
         .alert-info {
-            background: #d1ecf1;
-            border: 2px solid #0dcaf0;
+            background: #1a1f3a;
+            border: 2px solid #00ff41;
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
+        }
+        
+        .terminal-prompt {
+            font-family: 'Courier New', monospace;
+            color: #00ff41;
+            margin-bottom: 10px;
+        }
+        
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #00ff41;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
         }
         
         @media (max-width: 768px) {
@@ -251,9 +300,10 @@
 <body>
     <div class="container">
         <header>
+            <div class="terminal-prompt">mimis@stock-manager:~$</div>
             <h1>📦 Stock Manager</h1>
             <p>Επαγγελματικό Σύστημα Διαχείρισης Αποθέματος</p>
-            <div class="version-badge">📌 Τρέχουσα Έκδοση: v1.0.0</div>
+            <div class="version-badge">v1.0.0</div>
         </header>
 
         <div class="download-section">
@@ -262,13 +312,13 @@
             <a href="https://github.com/Mimisnak/stock-manager/releases/latest/download/StockManager.zip" class="download-btn">
                 ⬇️ Λήψη (Windows)
             </a>
-            <p style="margin-top: 20px; opacity: 0.9;">
+            <p style="margin-top: 20px; opacity: 0.8;">
                 📊 Μέγεθος: ~20 MB | 💻 Windows 10/11 | 🆓 Δωρεάν
             </p>
         </div>
 
         <div class="main-content">
-            <h2 style="color: #667eea; text-align: center; margin-bottom: 30px;">✨ Χαρακτηριστικά</h2>
+            <h2 style="text-align: center; margin-bottom: 30px;">✨ Χαρακτηριστικά</h2>
             
             <div class="features">
                 <div class="feature-card">
