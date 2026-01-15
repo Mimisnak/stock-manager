@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist-info/
+.venv/
+venv/
+ENV/
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+temp/
+
+# Excel temporary files
+~$*.xlsx
+~$*.xls
+
+# Data backups (μόνο το αρχικό data/)
+# Τα backups είναι πολλά και μεγάλα
+data/backups/*.json
+
+# Compiled files
+*.pyc
+*.pyo
+
+# Test files
+test_*.py
+*_test.py
+
+# Personal data (για ασφάλεια)
+# Κρατάμε μόνο template data
+# data/products.json
+# data/movements.json

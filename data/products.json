@@ -1,0 +1,1262 @@
+[
+  {
+    "name": "ΠΙΤΣΑ ΓΕΝΕΘΛΙΩΝ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 2,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο16 ΣΠΕΣΙΑΛ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 3,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο16 ΒΟΔΙΝΗ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 4,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο16 Χ.Α",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 5,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο16 ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 6,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο18 ΝΩΠΗ ΓΑΛΟΠ-ΚΑΣΕΡΙ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 7,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο18 ΒΟΔΙΝΗ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 8,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο18 Χ.Α",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 9,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο26 ΓΙΑ ΟΛΟΥΣ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 10,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο26 ΣΠΕΣΙΑΛ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 11,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο26 ΒΟΔΙΝΗ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 12,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο26 Χ.Α",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 13,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο26 ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 14,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο26 ΦΟΡΜΑ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 15,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο30 ΦΟΡΜΑ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 16,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο30 ΣΠΕΣΙΑΛ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 17,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο30 ΒΟΔΙΝΗ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 18,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο30 Χ.Α",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 19,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο30 ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 20,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο33 ΣΠΕΣΙΑΛ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 21,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο33 ΒΟΔΙΝΗ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 22,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο33 Χ.Α",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 23,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο33 ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 24,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο37 ΣΠΕΣΙΑΛ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 25,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο37 ΒΟΔΙΝΗ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 26,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο37 Χ.Α",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 27,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΠΙΤΣΑ Νο37 ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "🍕 Πίτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 28,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ. ΦΥΛΛΟ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 29,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΙΦΤΗ ΤΥΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 30,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΙΦΤΗ ΚΡΕΜΑ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 31,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΙΦΤΗ ΚΑΣΕΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 32,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΙΦΤΗ ΚΙΜΑ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 33,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΙΦΤΗ ΣΠΑΝΑΚΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 34,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΙΦΤΗ ΣΠΑΝΑΚΙ-ΤΥΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 35,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΙΦΤΗ ΠΑΤΑΤΑ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 36,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΙΦΤΗ ΚΟΛΟΚΥΘΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 37,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΤΥΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 38,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΚΡΕΜΑ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 39,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΚΑΣΕΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 40,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΓΑΛΟΠ-ΚΑΣΕΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 41,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΖΑΜΠΟΝ-ΚΑΣΕΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 42,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΜΙΝΙ ΓΑΛΟΠΟΥΛ-ΚΑΣ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 43,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΛΟΥΚΑΝΙΚΟ ΒΟΔ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 44,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΛΟΥΚΑΝΙΚΟ ΓΑΛΟ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 45,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΛΟΥΚΑΝΙΚΟ ΧΟΙΡ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 46,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΚΙΜΑΣ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 47,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΣΠΑΝΑΚΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 48,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΟΡΘΟΓΩΝΙΟ ΣΠΑΝΑΚΙ-ΤΥΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 49,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ. ΣΤΡΟΓΓΥΛΟ ΓΑΛΟΠΟΥΛ-ΚΑΣΕΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 50,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΣΤΡΟΓΓΥΛΟ ΚΑΣΕΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 51,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΔΙΝΟ ΚΑΣΕΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 52,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΦΑΚΕΛΟΣ ΚΟΤΟΠΟΥΛΟΥ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 53,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΦΑΚΕΛΟΣ Ζ.Κ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 54,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ. ΚΟΥΡΟΥ ΚΟΥΡΟΥ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 55,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΚΟΥΡΟΥ ΤΥΡΙ D",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 56,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΤΡΙΓΩΝΟ ΤΥΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 57,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΤΡΙΓΩΝΟ ΚΙΜΑΣ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 58,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΤΥΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 59,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΚΡΕΜΑ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 60,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΚΑΣΕΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 61,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΛΟΥΚΑΝΙΚΟ ΧΟΙΡΙΝΟ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 62,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΛΟΥΚΑΝΙΚΟ ΒΟΔΙΝΟ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 63,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΛΟΥΚΑΝΙΚΟ ΓΑΛΟΠΟΥΛΑ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 64,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΚΙΜΑΣ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 65,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΣΠΑΝΑΚΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 66,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑ ΣΠΑΝΑΚΙ-ΤΥΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 67,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑΠΑΤΑΤΑ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 68,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΦ.ΒΟΥΚΙΤΣΑΤΡΙΓΩΝΟ ΤΥΡΙ",
+    "category": "🥐 Σφολιάτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 69,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΟΥΣΑΜΙΝΙ Νο22 ΤΥΡΙ",
+    "category": "🥖 Ψωμιά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 70,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΟΥΣΑΜΙΝΙ Νο22 ΓΑΛΟΠ-ΚΑΣΕΡΙ",
+    "category": "🥖 Ψωμιά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 71,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΟΥΣΑΜΙΝΙ Νο30 ΤΥΡΙ",
+    "category": "🥖 Ψωμιά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 72,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΟΥΣΑΜΙΝΙ Νο30 ΓΑΛΟΠ-ΚΑΣΕΡΙ",
+    "category": "🥖 Ψωμιά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 73,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΣΟΥΣΑΜΙΝΙ Νο30 ΒΟΔΙΝΟ-ΚΑΣΕΡΙ",
+    "category": "🥖 Ψωμιά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 74,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΤΥΡΙ 250gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 75,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΡΕΜΑ 250gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 76,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΙΜΑ 250gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 77,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΣΠΑΝΑΚΙ ΤΥΡΙ 250gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 78,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΣΠΑΝΑΚΙ 250gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 79,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΟΤΟΠΟΥΛΟ 250gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 80,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΤΥΡΙ 500gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 81,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΡΕΜΑ 500gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 82,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΙΜΑ 500gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 83,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΣΠΑΝΑΚΙ ΤΥΡΙ 500gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 84,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΣΠΑΝΑΚΙ 500gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 85,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΟΤΟΠΟΥΛΟ 500gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 86,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΤΥΡΙ 1000gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 87,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΡΕΜΑ 1000gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 88,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΙΜΑ 1000gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 89,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΣΠΑΝΑΚΙ ΤΥΡΙ 1000gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 90,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΣΠΑΝΑΚΙ 1000gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 91,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΜΠΟΥΓΑΤΣΑ ΚΟΤΟΠΟΥΛΟ 1000gr",
+    "category": "🥧 Μπουγάτσες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 92,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ ΣΤΡΙΦΤΗ ΤΥΡΙ 850gr",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 93,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ ΣΤΡΙΦΤΗ ΚΡΕΜΑ 850gr",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 94,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ ΣΤΡΙΦΤΗ ΚΙΜΑ 850gr",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 95,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ ΣΤΡΙΦΤΗ ΣΠΑΝΑΚΙ 850gr",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 96,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ ΣΤΡΙΦΤΗ ΣΠΑΝΑΚΙ-ΤΥΡΙ 850gr",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 97,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ 2,5 ΚΙΛΩΝ ΣΠΑΝΑΚΙ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 98,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ 2,5 ΚΙΛΩΝ ΣΠΑΝΑΚΙ-ΤΥΡΙ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 99,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ 2,5 ΚΙΛΩΝ ΠΑΤΑΤΑ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 100,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ 2,5 ΚΙΛΩΝ ΤΥΡΙ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 101,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ 2,5 ΚΙΛΩΝ ΚΙΜΑ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 102,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΠΙΤΑ 2,5 ΚΙΛΩΝ ΚΟΛΟΚΥΘΙ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 103,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΔΙΔΥΜΟ ΚΙΜΑ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 104,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΔΙΔΥΜΟ ΤΥΡΙ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 105,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ. ΔΙΔΥΜΟ ΠΑΤΑΤΑ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 106,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ.ΣΤΡΙΦΤΗ ΤΥΡΙ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 107,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ.ΣΤΡΙΦΤΗ ΣΠΑΝΑΚΙ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 108,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΧΩΡΙΑΤ.ΣΤΡΙΦΤΗ ΠΑΤΑΤΑ",
+    "category": "🥟 Χωριάτικες Πίτες",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 109,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΚΑΛΤΣΟΝΕ Σ.Κ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 110,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΚΑΛΤΣΟΝΕ ΣΠΕΣΙΑΛ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 111,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΚΑΛΤΣΟΝΕ ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 112,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΟ ΠΕΪΝΕΡΛΙ Σ.Κ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 113,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΟ ΠΕΪΝΕΡΛΙ ΣΠΕΣΙΑΛ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 114,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΟ ΠΕΪΝΕΡΛΙ ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 115,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΟ ΠΕΪΝΕΡΛΙ ΓΗΓΑΣ ΣΠΕΣΙΑΛ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 116,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο18 Σ.Κ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 117,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο18 ΣΠΕΣΙΑΛ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 118,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο18 ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 119,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο26 Σ.Κ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 120,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο26 ΣΠΕΣΙΑΛ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 121,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο26 ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 122,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο33 Σ.Κ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 123,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο33 ΣΠΕΣΙΑΛ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 124,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΠΙΤΣΑ Νο33 ΓΑΛΟΠΟΥΛΑ-ΚΑΣΕΡΙ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 125,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΗ ΚΑΣΕΤΙΝΑ ΛΟΥΚΑΝΙΚΟ ΔΙΠΛΟ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 126,
+    "initial_stock": 0,
+    "min_limit": 0
+  },
+  {
+    "name": "ΝΩΠΟ ΜΠΙΦΤΕΚΙ ΣΚΕΠΑΣΤΟ",
+    "category": "❄️ Νωπά",
+    "quantity": 0,
+    "location": "",
+    "price": 0,
+    "id": 127,
+    "initial_stock": 0,
+    "min_limit": 0
+  }
+]
