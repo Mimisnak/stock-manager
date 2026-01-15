@@ -259,7 +259,7 @@
         <div class="download-section">
             <h2>🚀 Κατέβασε Τώρα Δωρεάν!</h2>
             <p style="font-size: 1.1em; margin: 20px 0;">Πλήρης έκδοση, χωρίς περιορισμούς</p>
-            <a href="https://github.com/YOUR_USERNAME/stock-manager/releases/latest/download/StockManager.zip" class="download-btn">
+            <a href="https://github.com/Mimisnak/stock-manager/releases/latest/download/StockManager.zip" class="download-btn">
                 ⬇️ Λήψη (Windows)
             </a>
             <p style="margin-top: 20px; opacity: 0.9;">
@@ -406,21 +406,21 @@
             <h2 style="color: #667eea; margin-bottom: 20px;">🆘 Υποστήριξη & Αναφορά Προβλημάτων</h2>
             <p>Αντιμετώπισες πρόβλημα; Θέλεις να προτείνεις νέο χαρακτηριστικό;</p>
             <ul style="margin: 20px 0 20px 20px;">
-                <li>📝 <a href="https://github.com/YOUR_USERNAME/stock-manager/issues" style="color: #667eea;">Άνοιξε Issue στο GitHub</a></li>
+                <li>📝 <a href="https://github.com/Mimisnak/stock-manager/issues" style="color: #667eea;">Άνοιξε Issue στο GitHub</a></li>
                 <li>💬 Περίγραψε το πρόβλημα με screenshots</li>
                 <li>📧 Email: your.email@example.com</li>
             </ul>
             
             <h3 style="margin-top: 30px; color: #667eea;">📖 Τεκμηρίωση</h3>
-            <p>Για αναλυτικές οδηγίες χρήσης, δες το <a href="https://github.com/YOUR_USERNAME/stock-manager/blob/main/README_USERS.md" style="color: #667eea;">README_USERS.md</a></p>
+            <p>Για αναλυτικές οδηγίες χρήσης, δες το <a href="https://github.com/Mimisnak/stock-manager/blob/main/README_USERS.md" style="color: #667eea;">README_USERS.md</a></p>
         </div>
 
         <footer>
             <p style="font-size: 1.2em; margin-bottom: 20px;">Developed with ❤️ for professional stock management</p>
-            <a href="https://github.com/YOUR_USERNAME/stock-manager" class="github-link">
+            <a href="https://github.com/Mimisnak/stock-manager" class="github-link">
                 🔗 GitHub Repository
             </a>
-            <a href="https://github.com/YOUR_USERNAME/stock-manager/releases" class="github-link">
+            <a href="https://github.com/Mimisnak/stock-manager/releases" class="github-link">
                 📦 All Releases
             </a>
             <p style="margin-top: 30px; opacity: 0.8;">© 2026 Stock Manager | Free & Open Source</p>
@@ -431,7 +431,7 @@
         // Auto-check για νέες εκδόσεις
         async function checkForUpdates() {
             try {
-                const response = await fetch('https://api.github.com/repos/YOUR_USERNAME/stock-manager/releases/latest');
+                const response = await fetch('https://api.github.com/repos/Mimisnak/stock-manager/releases/latest');
                 const data = await response.json();
                 const latestVersion = data.tag_name;
                 const currentVersion = 'v1.0.0';
@@ -452,7 +452,7 @@
                     `;
                     updateBanner.innerHTML = `
                         🎉 Νέα έκδοση διαθέσιμη: ${latestVersion}! 
-                        <a href="https://github.com/YOUR_USERNAME/stock-manager/releases/latest" 
+                        <a href="https://github.com/Mimisnak/stock-manager/releases/latest" 
                            style="color: white; text-decoration: underline; margin-left: 10px;">
                            Κατέβασε τώρα
                         </a>

@@ -29,8 +29,8 @@ git add .
 # 3. Πρώτο commit
 git commit -m "Initial commit - Stock Manager v1.0.0"
 
-# 4. Σύνδεση με το GitHub repository (ΑΛΛΑΞΕ ΤΟ YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/stock-manager.git
+# 4. Σύνδεση με το GitHub repository
+git remote add origin https://github.com/Mimisnak/stock-manager.git
 
 # 5. Rename branch σε main
 git branch -M main
@@ -99,7 +99,7 @@ Write-Host "✅ StockManager.zip δημιουργήθηκε!"
 Κατέβασε το `StockManager.zip` παρακάτω
 
 ### 📖 Οδηγίες
-Δες το [README_USERS.md](https://github.com/YOUR_USERNAME/stock-manager/blob/main/README_USERS.md)
+Δες το [README_USERS.md](https://github.com/Mimisnak/stock-manager/blob/main/README_USERS.md)
 
 ---
 💾 Μέγεθος: ~20 MB | 💻 Windows 10/11 | 🆓 Δωρεάν
@@ -149,18 +149,18 @@ git push
 ## 🔗 Σημαντικά URLs
 
 **Στο index.html άλλαξε:**
-- `YOUR_USERNAME` → το GitHub username σου
+- `Mimisnak` → το GitHub username σου
 - Email στο Support section
 - Οποιαδήποτε άλλα links
 
 **Το repository URL θα είναι:**
 ```
-https://github.com/YOUR_USERNAME/stock-manager
+https://github.com/Mimisnak/stock-manager
 ```
 
 **Η σελίδα λήψης θα είναι:**
 ```
-https://YOUR_USERNAME.github.io/stock-manager/
+https://Mimisnak.github.io/stock-manager/
 ```
 
 ---

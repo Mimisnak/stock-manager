@@ -18,8 +18,8 @@ git add .
 # First commit
 git commit -m "Initial commit - Stock Manager v1.0.0"
 
-# Add remote (ΑΛΛΑΞΕ ΤΟ YOUR_USERNAME με το δικό σου!)
-git remote add origin https://github.com/YOUR_USERNAME/stock-manager.git
+# Add remote
+git remote add origin https://github.com/Mimisnak/stock-manager.git
 
 # Rename to main
 git branch -M main
@@ -33,7 +33,7 @@ git push -u origin main
 2. Source: main branch / root folder
 3. Save
 
-✅ Η σελίδα σου: https://YOUR_USERNAME.github.io/stock-manager/
+✅ Η σελίδα σου: https://Mimisnak.github.io/stock-manager/
 
 ## Βήμα 4: Create Release
 1. GitHub → Releases → New Release
