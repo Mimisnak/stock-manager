@@ -63,12 +63,14 @@
         }
         
         .download-section {
-            text-align: center;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
             padding: 40px;
             background: #1a1f3a;
             border-radius: 10px;
-            margin: 30px 0;
-            color: #e0e0e0;
             border: 2px solid #00ff41;
             box-shadow: 0 0 30px rgba(0,255,65,0.2);
         }
@@ -281,6 +283,65 @@
             50%, 100% { opacity: 0; }
         }
         
+        .download-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .download-card h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .download-card p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .os-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn-download:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2em;
@@ -307,14 +368,28 @@
         </header>
 
         <div class="download-section">
-            <h2>Κατέβασε Τώρα Δωρεάν!</h2>
-            <p style="font-size: 1.1em; margin: 20px 0;">Πλήρης έκδοση, χωρίς περιορισμούς</p>
-            <a href="https://github.com/Mimisnak/stock-manager/releases" class="download-btn">
-                Λήψη (Windows)
-            </a>
-            <p style="margin-top: 20px; opacity: 0.8;">
-                Μέγεθος: ~53 MB | Windows 10/11 | Δωρεάν
-            </p>
+            <!-- Windows Card -->
+            <div class="download-card">
+                <div class="os-icon">🪟</div>
+                <h3>Windows</h3>
+                <p>Έτοιμο εκτελέσιμο αρχείο (.exe)<br>Δεν χρειάζεται εγκατάσταση Python</p>
+                <a href="https://github.com/Mimisnak/stock-manager/releases" class="btn-download">
+                    ⬇️ Download .exe
+                </a>
+            </div>
+
+            <!-- Mac/Linux Card -->
+            <div class="download-card">
+                <div class="os-icon">🍎🐧</div>
+                <h3>Mac & Linux</h3>
+                <p>Εκτέλεση μέσω Python<br>Ανοιχτός πηγαίος κώδικας</p>
+                <a href="https://github.com/Mimisnak/stock-manager/archive/refs/heads/main.zip" class="btn-download">
+                    ⬇️ Download Source
+                </a>
+                <a href="MAC_SETUP.md" class="btn-download btn-secondary">
+                    📖 Οδηγίες
+                </a>
+            </div>
         </div>
 
         <div class="main-content">
