@@ -488,7 +488,7 @@
                 const response = await fetch('https://api.github.com/repos/Mimisnak/stock-manager/releases/latest');
                 const data = await response.json();
                 const latestVersion = data.tag_name;
-                const currentVersion = 'v1.0.0';
+                const currentVersion = 'v1.0.0-beta';
                 
                 if (latestVersion !== currentVersion) {
                     const updateBanner = document.createElement('div');
@@ -514,7 +514,7 @@
                     document.body.prepend(updateBanner);
                 }
             } catch (error) {
-                console.log('Could not check for updates');
+                console.log('Could not check for updates:', error.message);
             }
         }
         
