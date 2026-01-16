@@ -38,6 +38,17 @@ sudo apt update
 sudo apt install python3 python3-pip
 ```
 
+**Linux (CentOS/RHEL/Fedora):**
+```bash
+sudo dnf install python3 python3-pip
+# ή για παλαιότερα συστήματα: sudo yum install python3 python3-pip
+```
+
+**Linux (Arch):**
+```bash
+sudo pacman -S python python-pip
+```
+
 ### Αν δεν βρεις το requirements.txt:
 Εγκατάστησε τις απαραίτητες βιβλιοθήκες χειροκίνητα:
 ```bash
@@ -47,8 +58,14 @@ pip install pandas openpyxl matplotlib pillow pyzbar qrcode reportlab
 # Mac
 brew install python-tk
 
-# Linux
+# Linux (Ubuntu/Debian)
 sudo apt-get install python3-tk
+
+# Linux (CentOS/RHEL/Fedora)
+sudo dnf install python3-tkinter
+
+# Linux (Arch)
+sudo pacman -S tk
 ```
 
 ## Ερωτήσεις;
