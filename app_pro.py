@@ -912,19 +912,40 @@ class StockManagerPro:
             dialog = BackupRestoreDialog(self.root, backups)
             if dialog.result:
                 try:
+                    # Διάβασμα backup
                     with open(dialog.result, 'r', encoding='utf-8') as f:
                         backup_data = json.load(f)
                     
+                    # Ενημέρωση δεδομένων
                     self.products = backup_data.get('products', [])
                     self.movements = backup_data.get('movements', [])
                     self.categories = backup_data.get('categories', self.categories)
                     
+                    # Αποθήκευση των δεδομένων
                     self.save_products()
                     self.save_movements()
                     self.save_categories()
                     
+                    # Ενημέρωση του category filter
                     self.category_filter['values'] = ["Όλες"] + self.categories
+                    self.category_filter.set("Όλες")
+                    
+                    # Καθαρισμός του search field
+                    self.search_var.set("")
+                    
+                    # Ανανέωση UI - Διαγραφή όλων των items από τα treeviews
+                    for tree in [self.products_tree, self.movements_tree, 
+                                self.stock_tree, self.most_active_tree]:
+                        for item in tree.get_children():
+                            tree.delete(item)
+                    
+                    # Πλήρης ανανέωση όλων των tabs
                     self.refresh_all()
+                    self.update_statistics()
+                    self.apply_filters()
+                    
+                    # Επαναφορά στο πρώτο tab
+                    self.notebook.select(0)
                     
                     messagebox.showinfo(
                         "✅ Επαναφορά Επιτυχής",
