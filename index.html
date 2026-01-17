@@ -1,25 +1,608 @@
-        <section class="download-section" style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; padding: 40px;">
+﻿<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Manager - Επαγγελματικό Σύστημα Διαχείρισης Αποθέματος</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', 'Consolas', monospace;
+            background: #0a0e27;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .version-badge {
+            display: inline-block;
+            background: #00ff41;
+            color: #0a0e27;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(0,255,65,0.3);
+            border: 2px solid #00ff41;
+        }
+        
+        .main-content {
+            background: #1a1f3a;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 0 30px rgba(0,255,65,0.1);
+            border: 1px solid #00ff41;
+        }
+        
+        .download-section {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 40px;
+            margin: 30px 0;
+        }
+        
+        .download-card {
+            background: linear-gradient(135deg, #1a1f3a 0%, #0f1729 100%);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0,255,65,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(0,255,65,0.4);
+        }
+        
+        .download-card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .download-card h3 {
+            color: #00ff41;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .download-card-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .download-card-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #00ff41;
+            color: #0a0e27;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .download-card-btn:hover {
+            background: #00cc33;
+            transform: scale(1.05);
+        }
+        
+        .download-card-btn-secondary {
+            background: transparent;
+            color: #00ff41;
+            border: 2px solid #00ff41;
+        }
+        
+        .download-card-btn-secondary:hover {
+            background: rgba(0, 255, 65, 0.1);
+        }
+        
+        .download-card-info {
+            margin-top: 15px;
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            padding: 30px;
+            background: #0f1729;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #00ff41;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0,255,65,0.3);
+            border-color: #00ff41;
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            color: #00ff41;
+            margin-bottom: 10px;
+        }
+        
+        .steps {
+            background: #0f1729;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid #00ff41;
+        }
+        
+        .steps h2 {
+            color: #00ff41;
+            margin-bottom: 20px;
+        }
+        
+        .step {
+            padding: 20px;
+            margin: 15px 0;
+            background: #1a1f3a;
+            border-left: 4px solid #00ff41;
+            border-radius: 5px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #00ff41;
+            color: #0a0e27;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 5px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .changelog {
+            margin: 40px 0;
+        }
+        
+        .changelog h2 {
+            color: #00ff41;
+            margin-bottom: 20px;
+        }
+        
+        .version-item {
+            padding: 20px;
+            margin: 15px 0;
+            background: #0f1729;
+            border-radius: 10px;
+            border: 1px solid #00ff41;
+        }
+        
+        .version-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .version-number {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #00ff41;
+        }
+        
+        .version-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .version-changes ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .version-changes li {
+            margin: 5px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: white;
+        }
+        
+        .github-link {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 30px;
+            background: #1a1f3a;
+            color: #00ff41;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: 2px solid #00ff41;
+        }
+        
+        .github-link:hover {
+            background: #00ff41;
+            color: #0a0e27;
+            box-shadow: 0 0 20px rgba(0,255,65,0.4);
+        }
+        
+        h2 {
+            color: #00ff41;
+        }
+        
+        h3 {
+            color: #00ff41;
+        }
+        
+        a {
+            color: #00ff41;
+        }
+        
+        a:hover {
+            color: #00ff41;
+            text-decoration: underline;
+        }
+        
+        .system-requirements {
+            background: #1a1f3a;
+            border: 2px solid #00ff41;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .requirements-list {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .alert-info {
+            background: #1a1f3a;
+            border: 2px solid #00ff41;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .update-steps {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .update-tip {
+            margin-top: 10px;
+        }
+        
+        .terminal-prompt {
+            font-family: 'Courier New', monospace;
+            color: #00ff41;
+            margin-bottom: 10px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .support-title {
+            margin-bottom: 20px;
+        }
+        
+        .support-list {
+            margin: 20px 0 20px 20px;
+        }
+        
+        .docs-section {
+            margin-top: 30px;
+        }
+        
+        .footer-title {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .footer-copyright {
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+        
+        .footer-link {
+            color: #00ff41;
+            text-decoration: none;
+        }
+        
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .download-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-card {
+                max-width: 100%;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="terminal-prompt">mimis@stock-manager:~$</div>
+            <h1>Stock Manager</h1>
+            <p>Επαγγελματικό Σύστημα Διαχείρισης Αποθέματος</p>
+            <div class="version-badge">v1.0.0-beta ⚠️</div>
+        </header>
+
+        <section class="download-section">
             <!-- Windows Card -->
-            <div style="background: linear-gradient(135deg, #1a1f3a 0%, #0f1729 100%); border: 2px solid #00ff41; border-radius: 15px; padding: 30px; max-width: 350px; text-align: center; box-shadow: 0 0 30px rgba(0,255,65,0.2); transition: transform 0.3s ease;">
-                <div style="font-size: 3em; margin-bottom: 15px;">■</div>
-                <h3 style="color: #00ff41; margin-bottom: 15px; font-size: 1.5em;">Windows</h3>
-                <p style="margin-bottom: 20px; line-height: 1.6;">Έτοιμο εκτελέσιμο αρχείο (.exe)<br>Δεν χρειάζεται εγκατάσταση Python</p>
-                <a href="https://github.com/Mimisnak/stock-manager/releases" style="display: inline-block; padding: 15px 35px; background: #00ff41; color: #0a0e27; text-decoration: none; border-radius: 25px; font-weight: bold; transition: all 0.3s ease; margin: 5px;">
+            <div class="download-card">
+                <div class="download-card-icon">■</div>
+                <h3>Windows</h3>
+                <p class="download-card-description">
+                    Έτοιμο εκτελέσιμο αρχείο (.exe)<br>
+                    Δεν χρειάζεται εγκατάσταση Python
+                </p>
+                <a href="https://github.com/Mimisnak/stock-manager/releases" class="download-card-btn" rel="noopener">
                     Λήψη Windows
                 </a>
-                <p style="margin-top: 15px; opacity: 0.8; font-size: 0.9em;">~53 MB | Windows 10/11</p>
+                <p class="download-card-info">~53 MB | Windows 10/11</p>
             </div>
 
             <!-- Mac/Linux Card -->
-            <div style="background: linear-gradient(135deg, #1a1f3a 0%, #0f1729 100%); border: 2px solid #00ff41; border-radius: 15px; padding: 30px; max-width: 350px; text-align: center; box-shadow: 0 0 30px rgba(0,255,65,0.2); transition: transform 0.3s ease;">
-                <div style="font-size: 3em; margin-bottom: 15px;">■</div>
-                <h3 style="color: #00ff41; margin-bottom: 15px; font-size: 1.5em;">Mac & Linux</h3>
-                <p style="margin-bottom: 20px; line-height: 1.6;">Εκτέλεση μέσω Python<br>Ανοιχτός πηγαίος κώδικας</p>
-                <a href="https://github.com/Mimisnak/stock-manager/archive/refs/heads/main.zip" style="display: inline-block; padding: 15px 35px; background: #00ff41; color: #0a0e27; text-decoration: none; border-radius: 25px; font-weight: bold; transition: all 0.3s ease; margin: 5px;">
+            <div class="download-card">
+                <div class="download-card-icon">■</div>
+                <h3>Mac & Linux</h3>
+                <p class="download-card-description">
+                    Εκτέλεση μέσω Python<br>
+                    Ανοιχτός πηγαίος κώδικας
+                </p>
+                <a href="https://github.com/Mimisnak/stock-manager/archive/refs/heads/main.zip" class="download-card-btn" rel="noopener">
                     Λήψη Source
                 </a>
-                <a href="https://github.com/Mimisnak/stock-manager/blob/main/MAC_SETUP.md" style="display: inline-block; padding: 15px 35px; background: transparent; color: #00ff41; border: 2px solid #00ff41; text-decoration: none; border-radius: 25px; font-weight: bold; transition: all 0.3s ease; margin: 5px;">
+                <a href="https://github.com/Mimisnak/stock-manager/blob/main/MAC_SETUP.md" class="download-card-btn download-card-btn-secondary" rel="noopener">
                     Οδηγίες
                 </a>
             </div>
         </section>
+
+        <div class="main-content">
+            <h2 class="section-title">Χαρακτηριστικά</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">■</div>
+                    <h3>Διαχείριση Προϊόντων</h3>
+                    <p>Προσθήκη, επεξεργασία και διαγραφή προϊόντων με λεπτομερή στοιχεία</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">■</div>
+                    <h3>Live Dashboard</h3>
+                    <p>Στατιστικά σε πραγματικό χρόνο με αυτόματη ανανέωση</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">■</div>
+                    <h3>Αναζήτηση & Φίλτρα</h3>
+                    <p>Γρήγορη αναζήτηση και φιλτράρισμα ανά κατηγορία</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">■</div>
+                    <h3>Εξαγωγές PDF/Excel</h3>
+                    <p>Επαγγελματικές αναφορές με ένα κλικ</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">■</div>
+                    <h3>Auto-Backup</h3>
+                    <p>Αυτόματα αντίγραφα ασφαλείας σε κάθε αλλαγή</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">■</div>
+                    <h3>Ειδοποιήσεις</h3>
+                    <p>Ενημερώσεις για χαμηλό απόθεμα</p>
+                </div>
+            </div>
+
+            <div class="steps">
+                <h2>Οδηγίες Εγκατάστασης (Windows)</h2>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Λήψη:</strong> Κατέβασε το αρχείο StockManager.zip από το κουμπί παραπάνω
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Αποσυμπίεση:</strong> Κάνε δεξί κλικ → "Extract All" → Επίλεξε προορισμό
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Εκτέλεση:</strong> Διπλό κλικ στο StockManager.exe
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Windows Defender:</strong> Αν εμφανιστεί προειδοποίηση, πάτα "More info" → "Run anyway"
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>Έτοιμο!</strong> Το πρόγραμμα έχει 126 προεγκατεστημένα προϊόντα για δοκιμή
+                </div>
+            </div>
+
+            <div class="system-requirements">
+                <h3>Απαιτήσεις Συστήματος</h3>
+                <ul class="requirements-list">
+                    <li>✅ Windows 10 ή νεότερο (64-bit)</li>
+                    <li>✅ 100 MB ελεύθερος χώρος</li>
+                    <li>✅ 2 GB RAM (συνιστάται)</li>
+                    <li>✅ Οθόνη 1024x768 ή μεγαλύτερη</li>
+                    <li>❌ Δεν χρειάζεται Python ή άλλες εγκαταστάσεις</li>
+                </ul>
+            </div>
+
+            <div class="alert-info">
+                <h3>🔄 Ενημερώσεις</h3>
+                <p><strong>Πώς να ενημερώσεις το πρόγραμμα:</strong></p>
+                <ol class="update-steps">
+                    <li>Κατέβασε τη νέα έκδοση από τα Releases</li>
+                    <li>Αντικατέστησε ΜΟΝΟ το StockManager.exe</li>
+                    <li>ΜΗΝ διαγράψεις τον φάκελο "data/" (περιέχει τα δεδομένα σου!)</li>
+                </ol>
+                <p class="update-tip"><strong>Tip:</strong> Κράτα αντίγραφο του φακέλου "data/" πριν από κάθε ενημέρωση</p>
+            </div>
+        </div>
+
+        <div class="main-content changelog">
+            <h2>Ιστορικό Εκδόσεων</h2>
+            
+            <div class="version-item">
+                <div class="version-header">
+                    <span class="version-number">v1.0.0-beta ⚠️</span>
+                    <span class="version-date">15 Ιανουαρίου 2026</span>
+                </div>
+                <div class="version-changes">
+                    <strong>BETA - Δοκιμαστική Έκδοση</strong>
+                    <ul>
+                        <li>Πλήρες σύστημα διαχείρισης αποθέματος</li>
+                        <li>126 προεγκατεστημένα προϊόντα (Πίτσες, Σφολιάτες, Μπουγάτσες, κλπ)</li>
+                        <li>Live Dashboard με αυτόματη ανανέωση</li>
+                        <li>Εξαγωγή σε PDF & Excel</li>
+                        <li>Αυτόματα backups (20 τελευταία)</li>
+                        <li>Υποστήριξη ελληνικών χαρακτήρων</li>
+                        <li>Ειδοποιήσεις χαμηλού αποθέματος</li>
+                        <li>Αναζήτηση & φιλτράρισμα</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h2 class="support-title">Υποστήριξη & Αναφορά Προβλημάτων</h2>
+            <p>Αντιμετώπισες πρόβλημα; Θέλεις να προτείνεις νέο χαρακτηριστικό;</p>
+            <ul class="support-list">
+                <li><a href="https://github.com/Mimisnak/stock-manager/issues" rel="noopener">Άνοιξε Issue στο GitHub</a></li>
+                <li>Περίγραψε το πρόβλημα με screenshots</li>
+                <li>Website: <a href="https://mimis.dev" target="_blank" rel="noopener">mimis.dev</a></li>
+            </ul>
+            
+            <h3 class="docs-section">Τεκμηρίωση</h3>
+            <p>Για αναλυτικές οδηγίες χρήσης, δες το <a href="https://github.com/Mimisnak/stock-manager/blob/main/README_USERS.md" rel="noopener">README_USERS.md</a></p>
+        </div>
+
+        <footer>
+            <p class="footer-title">Professional Stock Management System</p>
+            <a href="https://github.com/Mimisnak/stock-manager" class="github-link" rel="noopener">
+                GitHub Repository
+            </a>
+            <a href="https://github.com/Mimisnak/stock-manager/releases" class="github-link" rel="noopener">
+                All Releases
+            </a>
+            <p class="footer-copyright">© 2026 Developed by <a href="https://mimis.dev" target="_blank" rel="noopener" class="footer-link">mimis.dev</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Auto-check για νέες εκδόσεις
+        async function checkForUpdates() {
+            try {
+                const response = await fetch('https://api.github.com/repos/Mimisnak/stock-manager/releases/latest');
+                const data = await response.json();
+                const latestVersion = data.tag_name;
+                const currentVersion = 'v1.0.0-beta';
+                
+                if (latestVersion !== currentVersion) {
+                    const updateBanner = document.createElement('div');
+                    updateBanner.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        background: #00ff41;
+                        color: #0a0e27;
+                        padding: 15px;
+                        text-align: center;
+                        z-index: 1000;
+                        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+                        font-weight: bold;
+                    `;
+                    updateBanner.innerHTML = `
+                        Νέα έκδοση διαθέσιμη: ${latestVersion}! 
+                        <a href="https://github.com/Mimisnak/stock-manager/releases/latest" 
+                           style="color: #0a0e27; text-decoration: underline; margin-left: 10px;">
+                           Κατέβασε τώρα
+                        </a>
+                    `;
+                    document.body.prepend(updateBanner);
+                }
+            } catch (error) {
+                console.log('Could not check for updates');
+            }
+        }
+        
+        // Έλεγχος για updates όταν φορτώνει η σελίδα
+        window.addEventListener('load', checkForUpdates);
+    </script>
+</body>
+</html>
