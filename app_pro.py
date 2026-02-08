@@ -1160,8 +1160,6 @@ class StockManagerPro:
                     
                     # Πλήρης ανανέωση όλων των tabs
                     self.refresh_all()
-                    self.update_statistics()
-                    self.apply_filters()
                     
                     # Επαναφορά στο πρώτο tab
                     self.notebook.select(0)
@@ -2651,7 +2649,8 @@ class BackupRestoreDialog:
                     backup_data = json.load(f)
                     num_products = len(backup_data.get('products', []))
                     num_movements = len(backup_data.get('movements', []))
-            except:
+            except Exception as e:
+                print(f"Error reading backup {backup.name}: {type(e).__name__}: {e}")
                 num_products = "?"
                 num_movements = "?"
             
@@ -2713,17 +2712,15 @@ class BackupRestoreDialog:
                         f"📅 Δημιουργήθηκε: {dt.strftime('%d/%m/%Y %H:%M:%S')}"
                     )
                     self.details_label.config(text=details_text, fg="#2c3e50")
-                except:
+                except Exception as e:
+                    error_msg = f"⚠️ Σφάλμα ανάγνωσης: {type(e).__name__}: {str(e)}"
+                    print(error_msg)
                     self.details_label.config(
-                        text="⚠️ Δεν ήταν δυνατή η ανάγνωση των λεπτομερειών",
+                        text=error_msg,
                         fg="#e74c3c"
                     )
         
         tree.bind("<<TreeviewSelect>>", on_select)
-        
-        # Buttons
-        btn_frame = tk.Frame(content)
-        btn_frame.pack()
         
         def restore():
             selection = tree.selection()
@@ -2750,16 +2747,22 @@ class BackupRestoreDialog:
                     f"  • {num_movements} κινήσεις\n\n"
                     "Θέλετε να συνεχίσετε;"
                 )
-            except:
-                msg = (
-                    "⚠️ ΠΡΟΣΟΧΗ ⚠️\n\n"
-                    "Η επαναφορά θα αντικαταστήσει τα τρέχοντα δεδομένα.\n\n"
-                    "Θέλετε να συνεχίσετε;"
-                )
+            except Exception as e:
+                error_msg = f"Σφάλμα ανάγνωσης backup: {type(e).__name__}: {str(e)}"
+                print(error_msg)
+                messagebox.showerror("Σφάλμα", error_msg)
+                return
             
             if messagebox.askyesno("Επιβεβαίωση Επαναφοράς", msg):
                 self.result = backup_file
                 dialog.destroy()
+        
+        # Allow double-click to restore
+        tree.bind("<Double-1>", lambda e: restore())
+        
+        # Buttons
+        btn_frame = tk.Frame(content)
+        btn_frame.pack()
         
         ModernButton(
             btn_frame,
