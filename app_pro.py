@@ -1018,7 +1018,7 @@ class StockManagerPro:
     def load_categories(self):
         """Load categories from file or use defaults"""
         if self.categories_file.exists():
-            with open(self.categories_file, 'r', encoding='utf-8') as f:
+            with open(self.categories_file, 'r', encoding='utf-8-sig') as f:
                 return json.load(f)
         # Default categories
         return [
@@ -1042,7 +1042,7 @@ class StockManagerPro:
     
     def load_products(self):
         if self.products_file.exists():
-            with open(self.products_file, 'r', encoding='utf-8') as f:
+            with open(self.products_file, 'r', encoding='utf-8-sig') as f:
                 return json.load(f)
         return []
     
@@ -1053,7 +1053,7 @@ class StockManagerPro:
     
     def load_movements(self):
         if self.movements_file.exists():
-            with open(self.movements_file, 'r', encoding='utf-8') as f:
+            with open(self.movements_file, 'r', encoding='utf-8-sig') as f:
                 return json.load(f)
         return []
     
@@ -1132,7 +1132,7 @@ class StockManagerPro:
             if dialog.result:
                 try:
                     # Διάβασμα backup
-                    with open(dialog.result, 'r', encoding='utf-8') as f:
+                    with open(dialog.result, 'r', encoding='utf-8-sig') as f:
                         backup_data = json.load(f)
                     
                     # Ενημέρωση δεδομένων
@@ -2645,7 +2645,7 @@ class BackupRestoreDialog:
             
             # Try to read backup details
             try:
-                with open(backup, 'r', encoding='utf-8') as f:
+                with open(backup, 'r', encoding='utf-8-sig') as f:
                     backup_data = json.load(f)
                     num_products = len(backup_data.get('products', []))
                     num_movements = len(backup_data.get('movements', []))
@@ -2695,7 +2695,7 @@ class BackupRestoreDialog:
                 backup_file = self.backups[idx]
                 
                 try:
-                    with open(backup_file, 'r', encoding='utf-8') as f:
+                    with open(backup_file, 'r', encoding='utf-8-sig') as f:
                         backup_data = json.load(f)
                     
                     num_products = len(backup_data.get('products', []))
@@ -2733,7 +2733,7 @@ class BackupRestoreDialog:
             
             # Show confirmation with details
             try:
-                with open(backup_file, 'r', encoding='utf-8') as f:
+                with open(backup_file, 'r', encoding='utf-8-sig') as f:
                     backup_data = json.load(f)
                 
                 num_products = len(backup_data.get('products', []))
@@ -2758,7 +2758,10 @@ class BackupRestoreDialog:
                 dialog.destroy()
         
         # Allow double-click to restore
-        tree.bind("<Double-1>", lambda e: restore())
+        def on_double_click(event):
+            restore()
+        
+        tree.bind("<Double-Button-1>", on_double_click)
         
         # Buttons
         btn_frame = tk.Frame(content)
