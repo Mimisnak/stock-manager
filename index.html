@@ -386,7 +386,7 @@
             <div class="terminal-prompt">mimis@stock-manager:~$</div>
             <h1>Stock Manager</h1>
             <p>Επαγγελματικό Σύστημα Διαχείρισης Αποθέματος</p>
-            <div class="version-badge">v1.0.0-beta ⚠️</div>
+            <div class="version-badge">v1.1.0 ✨</div>
         </header>
 
         <section class="download-section">
@@ -440,13 +440,25 @@
                 <div class="feature-card">
                     <div class="feature-icon">■</div>
                     <h3>Αναζήτηση & Φίλτρα</h3>
-                    <p>Γρήγορη αναζήτηση και φιλτράρισμα ανά κατηγορία</p>
+                    <p>Γρήγορη αναζήτηση και φιλτράρισμα ανά κατηγορία με ταξινόμηση</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">■</div>
+                    <h3>Ημερολόγιο Κινήσεων</h3>
+                    <p>Πλήρες ιστορικό με φίλτρα ημερομηνιών και εξαγωγές</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">■</div>
                     <h3>Εξαγωγές PDF/Excel</h3>
-                    <p>Επαγγελματικές αναφορές με ένα κλικ</p>
+                    <p>Επαγγελματικές αναφορές από το Ημερολόγιο με ένα κλικ</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">■</div>
+                    <h3>Βελτιωμένο Backup</h3>
+                    <p>Αναλυτικές πληροφορίες και προεπισκόπηση backups</p>
                 </div>
                 
                 <div class="feature-card">
@@ -519,7 +531,28 @@
             
             <div class="version-item">
                 <div class="version-header">
-                    <span class="version-number">v1.0.0-beta ⚠️</span>
+                    <span class="version-number">v1.1.0 ✨</span>
+                    <span class="version-date">8 Φεβρουαρίου 2026</span>
+                </div>
+                <div class="version-changes">
+                    <strong>ΣΗΜΑΝΤΙΚΗ ΕΝΗΜΕΡΩΣΗ - Νέες Λειτουργίες!</strong>
+                    <ul>
+                        <li>✏️ <strong>Επεξεργασία Κατηγοριών:</strong> Πλήρης διαχείριση με δυνατότητα μετονομασίας</li>
+                        <li>📅 <strong>Ημερολόγιο/Ιστορικό:</strong> Νέα καρτέλα με φίλτρα ημερομηνιών (1 χρόνος προεπιλογή)</li>
+                        <li>📊 <strong>Εξαγωγή σε Excel:</strong> Export πλήρους ιστορικού με όλα τα δεδομένα</li>
+                        <li>📄 <strong>Εξαγωγή σε PDF:</strong> Επαγγελματικές αναφορές έτοιμες για εκτύπωση</li>
+                        <li>🔀 <strong>Ταξινόμηση Λιστών:</strong> Κλικ στις κεφαλίδες για ταξινόμηση (▲▼)</li>
+                        <li>🔍 <strong>Αναζήτηση σε Dialogs:</strong> Γρήγορη εύρεση προϊόντων κατά την εισαγωγή/εξαγωγή</li>
+                        <li>📝 <strong>Αλφαβητική Σειρά:</strong> Αυτόματη ταξινόμηση σε όλες τις λίστες</li>
+                        <li>💾 <strong>Βελτιωμένο Backup/Restore:</strong> Αναλυτικές πληροφορίες και προεπισκόπηση</li>
+                        <li>✅ Καλύτερη χρηστικότητα και πιο φιλικό UI</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="version-item">
+                <div class="version-header">
+                    <span class="version-number">v1.0.0-beta</span>
                     <span class="version-date">15 Ιανουαρίου 2026</span>
                 </div>
                 <div class="version-changes">
@@ -528,7 +561,6 @@
                         <li>Πλήρες σύστημα διαχείρισης αποθέματος</li>
                         <li>126 προεγκατεστημένα προϊόντα (Πίτσες, Σφολιάτες, Μπουγάτσες, κλπ)</li>
                         <li>Live Dashboard με αυτόματη ανανέωση</li>
-                        <li>Εξαγωγή σε PDF & Excel</li>
                         <li>Αυτόματα backups (20 τελευταία)</li>
                         <li>Υποστήριξη ελληνικών χαρακτήρων</li>
                         <li>Ειδοποιήσεις χαμηλού αποθέματος</li>
@@ -570,7 +602,7 @@
                 const response = await fetch('https://api.github.com/repos/Mimisnak/stock-manager/releases/latest');
                 const data = await response.json();
                 const latestVersion = data.tag_name;
-                const currentVersion = 'v1.0.0-beta';
+                const currentVersion = 'v1.1.0';
                 
                 if (latestVersion !== currentVersion) {
                     const updateBanner = document.createElement('div');
