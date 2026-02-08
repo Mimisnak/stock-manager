@@ -148,6 +148,7 @@ class StockManagerPro:
         self.create_dashboard_tab()
         self.create_products_tab()
         self.create_movements_tab()
+        self.create_history_tab()
         self.create_stock_tab()
         self.create_reports_tab()
         
@@ -462,6 +463,183 @@ class StockManagerPro:
             ["ID", "Ημερομηνία", "Προϊόν", "Τύπος", "Ποσότητα", "Σημειώσεις"]
         )
     
+    def create_history_tab(self):
+        """Tab: Ημερολόγιο/Ιστορικό Κινήσεων με δυνατότητα εξαγωγής"""
+        tab = tk.Frame(self.notebook, bg="white")
+        self.notebook.add(tab, text="📅 ΗΜΕΡΟΛΟΓΙΟ")
+        
+        # Toolbar
+        toolbar = tk.Frame(tab, bg=self.colors['light'], height=90)
+        toolbar.pack(fill=tk.X, padx=5, pady=5)
+        toolbar.pack_propagate(False)
+        
+        # Left section - Date filters
+        filter_frame = tk.Frame(toolbar, bg=self.colors['light'])
+        filter_frame.pack(side=tk.LEFT, padx=20, pady=10)
+        
+        tk.Label(
+            filter_frame,
+            text="📅 Φίλτρα Ημερομηνιών:",
+            bg=self.colors['light'],
+            font=("Segoe UI", 11, "bold")
+        ).grid(row=0, column=0, columnspan=4, pady=(0, 10), sticky=tk.W)
+        
+        # From date
+        tk.Label(
+            filter_frame,
+            text="Από:",
+            bg=self.colors['light'],
+            font=("Segoe UI", 10)
+        ).grid(row=1, column=0, padx=5)
+        
+        self.history_from_date = tk.Entry(
+            filter_frame,
+            font=("Segoe UI", 10),
+            width=12
+        )
+        self.history_from_date.grid(row=1, column=1, padx=5)
+        self.history_from_date.insert(0, (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"))
+        
+        # To date
+        tk.Label(
+            filter_frame,
+            text="Έως:",
+            bg=self.colors['light'],
+            font=("Segoe UI", 10)
+        ).grid(row=1, column=2, padx=5)
+        
+        self.history_to_date = tk.Entry(
+            filter_frame,
+            font=("Segoe UI", 10),
+            width=12
+        )
+        self.history_to_date.grid(row=1, column=3, padx=5)
+        self.history_to_date.insert(0, datetime.now().strftime("%Y-%m-%d"))
+        
+        # Quick filters
+        quick_frame = tk.Frame(filter_frame, bg=self.colors['light'])
+        quick_frame.grid(row=2, column=0, columnspan=4, pady=(10, 0))
+        
+        def set_today():
+            today = datetime.now().strftime("%Y-%m-%d")
+            self.history_from_date.delete(0, tk.END)
+            self.history_from_date.insert(0, today)
+            self.history_to_date.delete(0, tk.END)
+            self.history_to_date.insert(0, today)
+            self.refresh_history()
+        
+        def set_week():
+            today = datetime.now()
+            week_ago = (today - timedelta(days=7)).strftime("%Y-%m-%d")
+            self.history_from_date.delete(0, tk.END)
+            self.history_from_date.insert(0, week_ago)
+            self.history_to_date.delete(0, tk.END)
+            self.history_to_date.insert(0, today.strftime("%Y-%m-%d"))
+            self.refresh_history()
+        
+        def set_month():
+            today = datetime.now()
+            month_ago = (today - timedelta(days=30)).strftime("%Y-%m-%d")
+            self.history_from_date.delete(0, tk.END)
+            self.history_from_date.insert(0, month_ago)
+            self.history_to_date.delete(0, tk.END)
+            self.history_to_date.insert(0, today.strftime("%Y-%m-%d"))
+            self.refresh_history()
+        
+        ModernButton(
+            quick_frame,
+            text="Σήμερα",
+            command=set_today,
+            bg=self.colors['info'],
+            fg="white",
+            padx=10,
+            pady=5
+        ).pack(side=tk.LEFT, padx=2)
+        
+        ModernButton(
+            quick_frame,
+            text="7 Ημέρες",
+            command=set_week,
+            bg=self.colors['info'],
+            fg="white",
+            padx=10,
+            pady=5
+        ).pack(side=tk.LEFT, padx=2)
+        
+        ModernButton(
+            quick_frame,
+            text="30 Ημέρες",
+            command=set_month,
+            bg=self.colors['info'],
+            fg="white",
+            padx=10,
+            pady=5
+        ).pack(side=tk.LEFT, padx=2)
+        
+        ModernButton(
+            quick_frame,
+            text="🔄 Ανανέωση",
+            command=self.refresh_history,
+            bg=self.colors['success'],
+            fg="white",
+            padx=10,
+            pady=5
+        ).pack(side=tk.LEFT, padx=2)
+        
+        # Right section - Export buttons
+        export_frame = tk.Frame(toolbar, bg=self.colors['light'])
+        export_frame.pack(side=tk.RIGHT, padx=20, pady=15)
+        
+        tk.Label(
+            export_frame,
+            text="📤 Εξαγωγή:",
+            bg=self.colors['light'],
+            font=("Segoe UI", 11, "bold")
+        ).pack(anchor=tk.W, pady=(0, 10))
+        
+        btn_container = tk.Frame(export_frame, bg=self.colors['light'])
+        btn_container.pack()
+        
+        ModernButton(
+            btn_container,
+            text="📊 Excel",
+            command=self.export_history_to_excel,
+            bg=self.colors['success'],
+            fg="white",
+            padx=20,
+            pady=10
+        ).pack(side=tk.LEFT, padx=5)
+        
+        ModernButton(
+            btn_container,
+            text="📄 PDF",
+            command=self.export_history_to_pdf,
+            bg=self.colors['danger'],
+            fg="white",
+            padx=20,
+            pady=10
+        ).pack(side=tk.LEFT, padx=5)
+        
+        # Summary frame
+        summary_frame = tk.Frame(tab, bg=self.colors['light'], height=60)
+        summary_frame.pack(fill=tk.X, padx=10, pady=(5, 10))
+        summary_frame.pack_propagate(False)
+        
+        self.history_summary_label = tk.Label(
+            summary_frame,
+            text="",
+            bg=self.colors['light'],
+            fg=self.colors['dark'],
+            font=("Segoe UI", 10)
+        )
+        self.history_summary_label.pack(pady=15)
+        
+        # Table
+        self.history_tree = self.create_modern_table(
+            tab,
+            ["ID", "Ημερομηνία", "Ώρα", "Προϊόν", "Κατηγορία", "Τύπος", "Ποσότητα", "Σημειώσεις"]
+        )
+    
     def create_stock_tab(self):
         """Tab: Απόθεμα"""
         tab = tk.Frame(self.notebook, bg="white")
@@ -680,7 +858,7 @@ class StockManagerPro:
         return card
     
     def create_modern_table(self, parent, columns):
-        """Create modern styled table"""
+        """Create modern styled table with sortable columns"""
         frame = tk.Frame(parent, bg="white")
         frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
         
@@ -701,10 +879,12 @@ class StockManagerPro:
         vsb.config(command=tree.yview)
         hsb.config(command=tree.xview)
         
-        # Configure columns
+        # Configure columns with sorting
         for col in columns:
             tree.heading(col, text=col, anchor=tk.W)
             tree.column(col, width=120, anchor=tk.W)
+            # Add click event for sorting
+            tree.heading(col, text=col, command=lambda c=col: self.sort_treeview(tree, c, False))
         
         # Grid
         tree.grid(row=0, column=0, sticky="nsew")
@@ -721,6 +901,45 @@ class StockManagerPro:
         tree.tag_configure("oddrow", background="white")
         
         return tree
+    
+    def sort_treeview(self, tree, col, reverse):
+        """Sort treeview by column"""
+        try:
+            # Get all rows
+            data_list = [(tree.set(child, col), child) for child in tree.get_children('')]
+            
+            # Try to sort numerically first, if fails sort alphabetically
+            try:
+                # Try numeric sort
+                data_list.sort(key=lambda t: float(t[0].replace('📥 ', '').replace('📤 ', '').replace('€', '').replace(',', '').strip()), reverse=reverse)
+            except:
+                # Fallback to string sort
+                data_list.sort(key=lambda t: t[0].lower(), reverse=reverse)
+            
+            # Rearrange items
+            for index, (val, child) in enumerate(data_list):
+                tree.move(child, '', index)
+                # Update row colors
+                if index % 2 == 0:
+                    tree.item(child, tags=('evenrow',))
+                else:
+                    tree.item(child, tags=('oddrow',))
+            
+            # Update heading to show sort direction
+            for c in tree['columns']:
+                current_text = tree.heading(c)['text']
+                # Remove existing arrows
+                clean_text = current_text.replace(' ▲', '').replace(' ▼', '')
+                if c == col:
+                    # Add arrow to sorted column
+                    tree.heading(c, text=clean_text + (' ▼' if reverse else ' ▲'))
+                    # Set command to reverse sort next time
+                    tree.heading(c, command=lambda c=c: self.sort_treeview(tree, c, not reverse))
+                else:
+                    tree.heading(c, text=clean_text)
+                    tree.heading(c, command=lambda c=c: self.sort_treeview(tree, c, False))
+        except Exception as e:
+            print(f"Sort error: {e}")
     
     def create_simple_table(self, parent, columns):
         """Simple table for dashboard"""
@@ -1097,8 +1316,11 @@ class StockManagerPro:
         search_term = self.search_var.get().lower()
         category_filter = self.category_filter.get() if hasattr(self, 'category_filter') else "Όλες"
         
+        # Sort products alphabetically by name
+        sorted_products = sorted(self.products, key=lambda x: x['name'].lower())
+        
         display_idx = 0
-        for idx, p in enumerate(self.products):
+        for idx, p in enumerate(sorted_products):
             # Search filter
             if search_term and search_term not in p['name'].lower() and search_term not in str(p.get('code', '')).lower():
                 continue
@@ -1237,6 +1459,7 @@ class StockManagerPro:
     def refresh_all(self):
         self.refresh_products()
         self.refresh_movements()
+        self.refresh_history()
         self.refresh_stock()
         self.refresh_dashboard()
         self.refresh_reports()
@@ -1326,6 +1549,263 @@ class StockManagerPro:
                 self.format_number(data['out']),
                 self.format_number(data['total'])
             ))
+    
+    def refresh_history(self):
+        """Refresh history tab with date filters"""
+        if not hasattr(self, 'history_tree'):
+            return
+        
+        # Clear existing data
+        for item in self.history_tree.get_children():
+            self.history_tree.delete(item)
+        
+        # Get date range
+        try:
+            from_date_str = self.history_from_date.get()
+            to_date_str = self.history_to_date.get()
+            
+            from_date = datetime.strptime(from_date_str, "%Y-%m-%d")
+            to_date = datetime.strptime(to_date_str, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
+        except:
+            messagebox.showerror("Σφάλμα", "Μη έγκυρη μορφή ημερομηνίας!\nΧρησιμοποιήστε: YYYY-MM-DD")
+            return
+        
+        # Filter movements by date
+        filtered_movements = []
+        for m in self.movements:
+            try:
+                movement_date = datetime.strptime(m['date'].split()[0], "%Y-%m-%d")
+                if from_date <= movement_date <= to_date:
+                    filtered_movements.append(m)
+            except:
+                pass
+        
+        # Sort by date (newest first)
+        filtered_movements.sort(key=lambda x: x['date'], reverse=True)
+        
+        # Statistics
+        total_in = sum(m['quantity'] for m in filtered_movements if m['type'] == 'in')
+        total_out = sum(m['quantity'] for m in filtered_movements if m['type'] == 'out')
+        
+        # Display data
+        for i, m in enumerate(filtered_movements):
+            product = next((p for p in self.products if p['id'] == m['product_id']), None)
+            if product:
+                date_parts = m['date'].split()
+                date_str = date_parts[0] if date_parts else m['date']
+                time_str = date_parts[1] if len(date_parts) > 1 else "-"
+                
+                type_display = "📥 Εισαγωγή" if m['type'] == 'in' else "📤 Εξαγωγή"
+                
+                tag = "evenrow" if i % 2 == 0 else "oddrow"
+                
+                self.history_tree.insert("", tk.END, values=(
+                    m['id'],
+                    date_str,
+                    time_str,
+                    product['name'],
+                    product.get('category', '-'),
+                    type_display,
+                    self.format_number(m['quantity']),
+                    m.get('notes', '')
+                ), tags=(tag,))
+        
+        # Update summary
+        self.history_summary_label.config(
+            text=f"📊 Σύνολο κινήσεων: {len(filtered_movements)} | "
+                 f"📥 Εισαγωγές: {self.format_number(total_in)} | "
+                 f"📤 Εξαγωγές: {self.format_number(total_out)} | "
+                 f"📅 Περίοδος: {from_date_str} έως {to_date_str}"
+        )
+    
+    def export_history_to_excel(self):
+        """Export history to Excel file"""
+        try:
+            from_date_str = self.history_from_date.get()
+            to_date_str = self.history_to_date.get()
+            
+            from_date = datetime.strptime(from_date_str, "%Y-%m-%d")
+            to_date = datetime.strptime(to_date_str, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
+        except:
+            messagebox.showerror("Σφάλμα", "Μη έγκυρη μορφή ημερομηνίας!")
+            return
+        
+        # Filter and prepare data
+        filtered_movements = []
+        for m in self.movements:
+            try:
+                movement_date = datetime.strptime(m['date'].split()[0], "%Y-%m-%d")
+                if from_date <= movement_date <= to_date:
+                    product = next((p for p in self.products if p['id'] == m['product_id']), None)
+                    if product:
+                        date_parts = m['date'].split()
+                        filtered_movements.append({
+                            'ID': m['id'],
+                            'Ημερομηνία': date_parts[0] if date_parts else m['date'],
+                            'Ώρα': date_parts[1] if len(date_parts) > 1 else "-",
+                            'Προϊόν': product['name'],
+                            'Κατηγορία': product.get('category', '-'),
+                            'Τύπος': 'Εισαγωγή' if m['type'] == 'in' else 'Εξαγωγή',
+                            'Ποσότητα': m['quantity'],
+                            'Σημειώσεις': m.get('notes', '')
+                        })
+            except:
+                pass
+        
+        if not filtered_movements:
+            messagebox.showwarning("Προσοχή", "Δεν βρέθηκαν κινήσεις για την επιλεγμένη περίοδο!")
+            return
+        
+        # Ask for save location
+        filename = filedialog.asksaveasfilename(
+            defaultextension=".xlsx",
+            filetypes=[("Excel files", "*.xlsx"), ("All files", "*.*")],
+            initialfile=f"history_{from_date_str}_to_{to_date_str}.xlsx"
+        )
+        
+        if filename:
+            try:
+                df = pd.DataFrame(filtered_movements)
+                df.to_excel(filename, index=False, sheet_name="Ιστορικό Κινήσεων")
+                
+                messagebox.showinfo(
+                    "✅ Επιτυχής Εξαγωγή",
+                    f"Το ιστορικό εξήχθη επιτυχώς!\n\n"
+                    f"📁 Αρχείο: {Path(filename).name}\n"
+                    f"📊 Κινήσεις: {len(filtered_movements)}\n"
+                    f"📅 Περίοδος: {from_date_str} - {to_date_str}"
+                )
+                self.show_notification("✓ Εξαγωγή σε Excel ολοκληρώθηκε", "success")
+            except Exception as e:
+                messagebox.showerror("Σφάλμα", f"Αποτυχία εξαγωγής:\n{e}")
+                self.show_notification(f"✗ Σφάλμα εξαγωγής: {e}", "error")
+    
+    def export_history_to_pdf(self):
+        """Export history to PDF file"""
+        try:
+            from_date_str = self.history_from_date.get()
+            to_date_str = self.history_to_date.get()
+            
+            from_date = datetime.strptime(from_date_str, "%Y-%m-%d")
+            to_date = datetime.strptime(to_date_str, "%Y-%m-%d").replace(hour=23, minute=59, second=59)
+        except:
+            messagebox.showerror("Σφάλμα", "Μη έγκυρη μορφή ημερομηνίας!")
+            return
+        
+        # Filter movements
+        filtered_movements = []
+        for m in self.movements:
+            try:
+                movement_date = datetime.strptime(m['date'].split()[0], "%Y-%m-%d")
+                if from_date <= movement_date <= to_date:
+                    product = next((p for p in self.products if p['id'] == m['product_id']), None)
+                    if product:
+                        filtered_movements.append((m, product))
+            except:
+                pass
+        
+        if not filtered_movements:
+            messagebox.showwarning("Προσοχή", "Δεν βρέθηκαν κινήσεις για την επιλεγμένη περίοδο!")
+            return
+        
+        # Ask for save location
+        filename = filedialog.asksaveasfilename(
+            defaultextension=".pdf",
+            filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")],
+            initialfile=f"history_{from_date_str}_to_{to_date_str}.pdf"
+        )
+        
+        if filename:
+            try:
+                from reportlab.lib import colors
+                from reportlab.lib.pagesizes import A4, landscape
+                from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+                from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+                from reportlab.lib.units import inch
+                from reportlab.pdfbase import pdfmetrics
+                from reportlab.pdfbase.ttfonts import TTFont
+                
+                # Create PDF
+                doc = SimpleDocTemplate(filename, pagesize=landscape(A4))
+                elements = []
+                
+                # Styles
+                styles = getSampleStyleSheet()
+                title_style = ParagraphStyle(
+                    'CustomTitle',
+                    parent=styles['Heading1'],
+                    fontSize=16,
+                    textColor=colors.HexColor('#2c3e50'),
+                    spaceAfter=30,
+                    alignment=1  # Center
+                )
+                
+                # Title
+                elements.append(Paragraph("ΙΣΤΟΡΙΚΟ ΚΙΝΗΣΕΩΝ ΑΠΟΘΗΚΗΣ", title_style))
+                elements.append(Paragraph(f"Περίοδος: {from_date_str} έως {to_date_str}", styles['Normal']))
+                elements.append(Spacer(1, 0.3*inch))
+                
+                # Statistics
+                total_in = sum(m[0]['quantity'] for m in filtered_movements if m[0]['type'] == 'in')
+                total_out = sum(m[0]['quantity'] for m in filtered_movements if m[0]['type'] == 'out')
+                
+                stats_text = f"Σύνολο Κινήσεων: {len(filtered_movements)} | Εισαγωγές: {total_in} | Εξαγωγές: {total_out}"
+                elements.append(Paragraph(stats_text, styles['Normal']))
+                elements.append(Spacer(1, 0.2*inch))
+                
+                # Table data
+                data = [['ID', 'Ημερομηνία', 'Προϊόν', 'Κατηγορία', 'Τύπος', 'Ποσότητα', 'Σημειώσεις']]
+                
+                for m, product in filtered_movements:
+                    date_str = m['date'].split()[0]
+                    type_str = 'Εισαγωγή' if m['type'] == 'in' else 'Εξαγωγή'
+                    data.append([
+                        str(m['id']),
+                        date_str,
+                        product['name'][:20],
+                        product.get('category', '-')[:15],
+                        type_str,
+                        str(m['quantity']),
+                        m.get('notes', '')[:25]
+                    ])
+                
+                # Create table
+                table = Table(data, repeatRows=1)
+                table.setStyle(TableStyle([
+                    ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#3498db')),
+                    ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                    ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                    ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                    ('FONTSIZE', (0, 0), (-1, 0), 10),
+                    ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                    ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                    ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                    ('FONTSIZE', (0, 1), (-1, -1), 8),
+                    ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.lightgrey, colors.white]),
+                ]))
+                
+                elements.append(table)
+                
+                # Build PDF
+                doc.build(elements)
+                
+                messagebox.showinfo(
+                    "✅ Επιτυχής Εξαγωγή",
+                    f"Το ιστορικό εξήχθη επιτυχώς σε PDF!\n\n"
+                    f"📁 Αρχείο: {Path(filename).name}\n"
+                    f"📊 Κινήσεις: {len(filtered_movements)}"
+                )
+                self.show_notification("✓ Εξαγωγή σε PDF ολοκληρώθηκε", "success")
+            except ImportError:
+                messagebox.showerror(
+                    "Απαιτείται reportlab",
+                    "Για εξαγωγή σε PDF απαιτείται η βιβλιοθήκη reportlab.\n\n"
+                    "Εγκατάσταση: pip install reportlab"
+                )
+                self.show_notification("✗ Δεν βρέθηκε το reportlab", "error")
+            except Exception as e:
+                messagebox.showerror("Σφάλμα", f"Αποτυχία εξαγωγής PDF:\n{e}")
+                self.show_notification(f"✗ Σφάλμα εξαγωγής: {e}", "error")
     
     def on_search(self, *args):
         """Handle search"""
@@ -1875,6 +2355,86 @@ class CategoryDialog:
             pady=8
         ).pack(side=tk.LEFT)
         
+        # Edit button
+        def edit_category():
+            selection = self.category_listbox.curselection()
+            if not selection:
+                messagebox.showwarning("Προσοχή", "Επιλέξτε μια κατηγορία για επεξεργασία!")
+                return
+            
+            idx = selection[0]
+            old_cat = self.categories[idx]
+            
+            # Δημιουργία dialog για επεξεργασία
+            edit_dialog = tk.Toplevel(dialog)
+            edit_dialog.title("Επεξεργασία Κατηγορίας")
+            edit_dialog.geometry("400x150")
+            edit_dialog.resizable(False, False)
+            edit_dialog.transient(dialog)
+            edit_dialog.grab_set()
+            
+            # Center dialog
+            edit_dialog.update_idletasks()
+            x = (edit_dialog.winfo_screenwidth() // 2) - (200)
+            y = (edit_dialog.winfo_screenheight() // 2) - (75)
+            edit_dialog.geometry(f"+{x}+{y}")
+            
+            tk.Label(
+                edit_dialog,
+                text="Νέο όνομα κατηγορίας:",
+                font=("Segoe UI", 11)
+            ).pack(padx=20, pady=(20, 10))
+            
+            edit_entry = tk.Entry(
+                edit_dialog,
+                font=("Segoe UI", 12),
+                width=30
+            )
+            edit_entry.pack(padx=20, pady=5, ipady=4)
+            edit_entry.insert(0, old_cat)
+            edit_entry.select_range(0, tk.END)
+            edit_entry.focus_set()
+            
+            def save_edit():
+                new_cat = edit_entry.get().strip()
+                if not new_cat:
+                    messagebox.showwarning("Προσοχή", "Το όνομα δεν μπορεί να είναι κενό!")
+                    return
+                if new_cat != old_cat and new_cat in self.categories:
+                    messagebox.showwarning("Προσοχή", "Η κατηγορία υπάρχει ήδη!")
+                    return
+                
+                self.categories[idx] = new_cat
+                self.category_listbox.delete(idx)
+                self.category_listbox.insert(idx, new_cat)
+                self.category_listbox.selection_set(idx)
+                edit_dialog.destroy()
+            
+            edit_entry.bind('<Return>', lambda e: save_edit())
+            
+            btn_frame = tk.Frame(edit_dialog)
+            btn_frame.pack(pady=15)
+            
+            ModernButton(
+                btn_frame,
+                text="💾 Αποθήκευση",
+                command=save_edit,
+                bg="#27ae60",
+                fg="white",
+                padx=20,
+                pady=8
+            ).pack(side=tk.LEFT, padx=5)
+            
+            ModernButton(
+                btn_frame,
+                text="❌ Ακύρωση",
+                command=edit_dialog.destroy,
+                bg="#95a5a6",
+                fg="white",
+                padx=20,
+                pady=8
+            ).pack(side=tk.LEFT, padx=5)
+        
         # Delete button
         def delete_category():
             selection = self.category_listbox.curselection()
@@ -1885,15 +2445,29 @@ class CategoryDialog:
                     del self.categories[idx]
                     self.category_listbox.delete(idx)
         
+        # Action buttons frame
+        action_frame = tk.Frame(content)
+        action_frame.pack(pady=(0, 15))
+        
         ModernButton(
-            content,
-            text="🗑️ Διαγραφή Επιλεγμένης",
+            action_frame,
+            text="✏️ Επεξεργασία",
+            command=edit_category,
+            bg="#3498db",
+            fg="white",
+            padx=20,
+            pady=10
+        ).pack(side=tk.LEFT, padx=5)
+        
+        ModernButton(
+            action_frame,
+            text="🗑️ Διαγραφή",
             command=delete_category,
             bg="#e74c3c",
             fg="white",
             padx=20,
             pady=10
-        ).pack(pady=(0, 15))
+        ).pack(side=tk.LEFT, padx=5)
         
         # Buttons
         btn_frame = tk.Frame(content)
@@ -1936,7 +2510,7 @@ class BackupRestoreDialog:
         
         dialog = tk.Toplevel(parent)
         dialog.title("Επαναφορά Backup")
-        dialog.geometry("600x450")
+        dialog.geometry("750x550")
         dialog.resizable(False, False)
         dialog.transient(parent)
         dialog.grab_set()
@@ -1963,60 +2537,195 @@ class BackupRestoreDialog:
         content = tk.Frame(dialog, padx=30, pady=20)
         content.pack(fill=tk.BOTH, expand=True)
         
+        # Info label
+        info_frame = tk.Frame(content, bg="#e8f5e9", relief=tk.RAISED, borderwidth=1)
+        info_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        tk.Label(
+            info_frame,
+            text="ℹ️ Επιλέξτε ένα backup για επαναφορά. Τα τρέχοντα δεδομένα θα αντικατασταθούν.",
+            bg="#e8f5e9",
+            fg="#2e7d32",
+            font=("Segoe UI", 9),
+            wraplength=650
+        ).pack(pady=10, padx=10)
+        
         tk.Label(
             content,
-            text="Διαθέσιμα Backups:",
+            text=f"Διαθέσιμα Backups ({len(backups)}):",
             font=("Segoe UI", 11, "bold")
         ).pack(anchor=tk.W, pady=(0, 10))
         
-        # List frame
+        # List frame with details
         list_frame = tk.Frame(content)
         list_frame.pack(fill=tk.BOTH, expand=True, pady=(0, 15))
         
-        scrollbar = tk.Scrollbar(list_frame)
+        # Treeview for better display
+        columns = ("Ημερομηνία", "Ώρα", "Μέγεθος", "Προϊόντα", "Κινήσεις")
+        tree = ttk.Treeview(
+            list_frame,
+            columns=columns,
+            show="headings",
+            selectmode="browse",
+            height=12
+        )
+        
+        # Configure columns
+        tree.column("Ημερομηνία", width=120, anchor=tk.CENTER)
+        tree.column("Ώρα", width=100, anchor=tk.CENTER)
+        tree.column("Μέγεθος", width=100, anchor=tk.CENTER)
+        tree.column("Προϊόντα", width=100, anchor=tk.CENTER)
+        tree.column("Κινήσεις", width=100, anchor=tk.CENTER)
+        
+        tree.heading("Ημερομηνία", text="📅 Ημερομηνία")
+        tree.heading("Ώρα", text="🕐 Ώρα")
+        tree.heading("Μέγεθος", text="💾 Μέγεθος")
+        tree.heading("Προϊόντα", text="📦 Προϊόντα")
+        tree.heading("Κινήσεις", text="📋 Κινήσεις")
+        
+        scrollbar = ttk.Scrollbar(list_frame, orient="vertical", command=tree.yview)
+        tree.configure(yscrollcommand=scrollbar.set)
+        
+        tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         
-        self.backup_listbox = tk.Listbox(
-            list_frame,
-            font=("Segoe UI", 10),
-            yscrollcommand=scrollbar.set,
-            selectmode=tk.SINGLE,
-            height=15
-        )
-        self.backup_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        scrollbar.config(command=self.backup_listbox.yview)
-        
-        # Add backups to list
-        for backup in backups:
+        # Add backups to tree with details
+        for i, backup in enumerate(backups):
             timestamp = backup.stem.replace("backup_", "")
             try:
                 dt = datetime.strptime(timestamp, "%Y%m%d_%H%M%S")
-                display_text = dt.strftime("%d/%m/%Y %H:%M:%S")
+                date_str = dt.strftime("%d/%m/%Y")
+                time_str = dt.strftime("%H:%M:%S")
             except:
-                display_text = timestamp
+                date_str = timestamp
+                time_str = "-"
             
-            self.backup_listbox.insert(tk.END, display_text)
+            # Get file size
+            size_kb = backup.stat().st_size / 1024
+            if size_kb < 1024:
+                size_str = f"{size_kb:.1f} KB"
+            else:
+                size_str = f"{size_kb/1024:.2f} MB"
+            
+            # Try to read backup details
+            try:
+                with open(backup, 'r', encoding='utf-8') as f:
+                    backup_data = json.load(f)
+                    num_products = len(backup_data.get('products', []))
+                    num_movements = len(backup_data.get('movements', []))
+            except:
+                num_products = "?"
+                num_movements = "?"
+            
+            tag = "evenrow" if i % 2 == 0 else "oddrow"
+            tree.insert("", tk.END, values=(
+                date_str,
+                time_str,
+                size_str,
+                num_products,
+                num_movements
+            ), tags=(tag,))
         
+        tree.tag_configure("evenrow", background="#f5f5f5")
+        tree.tag_configure("oddrow", background="white")
+        
+        self.tree = tree
         self.backups = backups
+        
+        # Details frame
+        details_frame = tk.LabelFrame(
+            content,
+            text="📋 Λεπτομέρειες Επιλεγμένου Backup",
+            font=("Segoe UI", 10, "bold"),
+            padx=10,
+            pady=10
+        )
+        details_frame.pack(fill=tk.X, pady=(0, 15))
+        
+        self.details_label = tk.Label(
+            details_frame,
+            text="Επιλέξτε ένα backup για να δείτε λεπτομέρειες",
+            font=("Segoe UI", 9),
+            fg="#7f8c8d",
+            justify=tk.LEFT
+        )
+        self.details_label.pack(anchor=tk.W)
+        
+        def on_select(event):
+            selection = tree.selection()
+            if selection:
+                idx = tree.index(selection[0])
+                backup_file = self.backups[idx]
+                
+                try:
+                    with open(backup_file, 'r', encoding='utf-8') as f:
+                        backup_data = json.load(f)
+                    
+                    num_products = len(backup_data.get('products', []))
+                    num_movements = len(backup_data.get('movements', []))
+                    num_categories = len(backup_data.get('categories', []))
+                    
+                    timestamp = backup_file.stem.replace("backup_", "")
+                    dt = datetime.strptime(timestamp, "%Y%m%d_%H%M%S")
+                    
+                    details_text = (
+                        f"📦 Προϊόντα: {num_products} | "
+                        f"📋 Κινήσεις: {num_movements} | "
+                        f"🏷️ Κατηγορίες: {num_categories}\n"
+                        f"📅 Δημιουργήθηκε: {dt.strftime('%d/%m/%Y %H:%M:%S')}"
+                    )
+                    self.details_label.config(text=details_text, fg="#2c3e50")
+                except:
+                    self.details_label.config(
+                        text="⚠️ Δεν ήταν δυνατή η ανάγνωση των λεπτομερειών",
+                        fg="#e74c3c"
+                    )
+        
+        tree.bind("<<TreeviewSelect>>", on_select)
         
         # Buttons
         btn_frame = tk.Frame(content)
         btn_frame.pack()
         
         def restore():
-            selection = self.backup_listbox.curselection()
+            selection = tree.selection()
             if not selection:
                 messagebox.showwarning("Προσοχή", "Επιλέξτε ένα backup!")
                 return
             
-            if messagebox.askyesno("Επιβεβαίωση", 
-                                   "Η επαναφορά θα αντικαταστήσει τα τρέχοντα δεδομένα.\nΣυνέχεια;"):
-                self.result = self.backups[selection[0]]
+            idx = tree.index(selection[0])
+            backup_file = self.backups[idx]
+            
+            # Show confirmation with details
+            try:
+                with open(backup_file, 'r', encoding='utf-8') as f:
+                    backup_data = json.load(f)
+                
+                num_products = len(backup_data.get('products', []))
+                num_movements = len(backup_data.get('movements', []))
+                
+                msg = (
+                    "⚠️ ΠΡΟΣΟΧΗ ⚠️\n\n"
+                    "Η επαναφορά θα αντικαταστήσει ΟΛΑ τα τρέχοντα δεδομένα!\n\n"
+                    f"Το backup περιέχει:\n"
+                    f"  • {num_products} προϊόντα\n"
+                    f"  • {num_movements} κινήσεις\n\n"
+                    "Θέλετε να συνεχίσετε;"
+                )
+            except:
+                msg = (
+                    "⚠️ ΠΡΟΣΟΧΗ ⚠️\n\n"
+                    "Η επαναφορά θα αντικαταστήσει τα τρέχοντα δεδομένα.\n\n"
+                    "Θέλετε να συνεχίσετε;"
+                )
+            
+            if messagebox.askyesno("Επιβεβαίωση Επαναφοράς", msg):
+                self.result = backup_file
                 dialog.destroy()
         
         ModernButton(
             btn_frame,
-            text="📥 Επαναφορά",
+            text="📥 Επαναφορά Επιλεγμένου",
             command=restore,
             bg="#27ae60",
             fg="white",
