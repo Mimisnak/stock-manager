@@ -2181,6 +2181,7 @@ class ProductDialog:
 class MovementDialog:
     def __init__(self, parent, movement_type, products):
         self.result = None
+        self.all_products = sorted(products, key=lambda x: x['name'].lower())  # Sort alphabetically
         
         title = "Εισαγωγή Προϊόντος" if movement_type == 'in' else "Εξαγωγή Προϊόντος"
         icon = "📥" if movement_type == 'in' else "📤"
@@ -2188,7 +2189,7 @@ class MovementDialog:
         
         dialog = tk.Toplevel(parent)
         dialog.title(title)
-        dialog.geometry("450x320")
+        dialog.geometry("450x420")
         dialog.resizable(False, False)
         dialog.transient(parent)
         dialog.grab_set()
@@ -2215,24 +2216,46 @@ class MovementDialog:
         frame = tk.Frame(dialog, padx=30, pady=20)
         frame.pack(fill=tk.BOTH, expand=True)
         
-        tk.Label(frame, text="Προϊόν *", font=("Segoe UI", 10)).grid(row=0, column=0, sticky=tk.W, pady=10)
+        # Search field
+        tk.Label(frame, text="🔍 Αναζήτηση", font=("Segoe UI", 10)).grid(row=0, column=0, sticky=tk.W, pady=(5,5))
+        search_var = tk.StringVar()
+        search_entry = tk.Entry(frame, font=("Segoe UI", 11), width=30, textvariable=search_var)
+        search_entry.grid(row=0, column=1, pady=(5,5), ipady=4)
+        
+        # Product combo
+        tk.Label(frame, text="Προϊόν *", font=("Segoe UI", 10)).grid(row=1, column=0, sticky=tk.W, pady=10)
         product_combo = ttk.Combobox(frame, font=("Segoe UI", 11), width=28, state="readonly")
-        product_combo['values'] = [p['name'] for p in products]
-        product_combo.grid(row=0, column=1, pady=10)
-        if products:
+        product_combo['values'] = [p['name'] for p in self.all_products]
+        product_combo.grid(row=1, column=1, pady=10)
+        if self.all_products:
             product_combo.current(0)
         
-        tk.Label(frame, text="Ποσότητα *", font=("Segoe UI", 10)).grid(row=1, column=0, sticky=tk.W, pady=10)
-        qty_entry = tk.Entry(frame, font=("Segoe UI", 11), width=30)
-        qty_entry.grid(row=1, column=1, pady=10, ipady=4)
+        # Filter function
+        def filter_products(*args):
+            search_text = search_var.get().lower()
+            if search_text:
+                filtered = [p['name'] for p in self.all_products if search_text in p['name'].lower()]
+                product_combo['values'] = filtered
+                if filtered:
+                    product_combo.set(filtered[0])
+            else:
+                product_combo['values'] = [p['name'] for p in self.all_products]
+                if self.all_products:
+                    product_combo.set(self.all_products[0]['name'])
         
-        tk.Label(frame, text="Σημειώσεις", font=("Segoe UI", 10)).grid(row=2, column=0, sticky=tk.W, pady=10)
+        search_var.trace('w', filter_products)
+        
+        tk.Label(frame, text="Ποσότητα *", font=("Segoe UI", 10)).grid(row=2, column=0, sticky=tk.W, pady=10)
+        qty_entry = tk.Entry(frame, font=("Segoe UI", 11), width=30)
+        qty_entry.grid(row=2, column=1, pady=10, ipady=4)
+        
+        tk.Label(frame, text="Σημειώσεις", font=("Segoe UI", 10)).grid(row=3, column=0, sticky=tk.W, pady=10)
         notes_entry = tk.Entry(frame, font=("Segoe UI", 11), width=30)
-        notes_entry.grid(row=2, column=1, pady=10, ipady=4)
+        notes_entry.grid(row=3, column=1, pady=10, ipady=4)
         
         # Buttons
         btn_frame = tk.Frame(frame)
-        btn_frame.grid(row=3, column=0, columnspan=2, pady=20)
+        btn_frame.grid(row=4, column=0, columnspan=2, pady=20)
         
         def save():
             try:
@@ -2243,7 +2266,7 @@ class MovementDialog:
                 
                 quantity = float(qty_entry.get() or 0)
                 
-                product_id = next((p['id'] for p in products if p['name'] == selected_product), None)
+                product_id = next((p['id'] for p in self.all_products if p['name'] == selected_product), None)
                 
                 self.result = {
                     'product_id': product_id,
