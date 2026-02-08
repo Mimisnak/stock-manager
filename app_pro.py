@@ -498,7 +498,7 @@ class StockManagerPro:
             width=12
         )
         self.history_from_date.grid(row=1, column=1, padx=5)
-        self.history_from_date.insert(0, (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"))
+        self.history_from_date.insert(0, (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d"))
         
         # To date
         tk.Label(
@@ -1355,7 +1355,17 @@ class StockManagerPro:
         today = datetime.now().date()
         week_ago = today - timedelta(days=7)
         
-        for idx, m in enumerate(reversed(self.movements)):
+        # Create list with product names for sorting
+        movements_with_names = []
+        for m in self.movements:
+            product_name = next((p['name'] for p in self.products if p['id'] == m['product_id']), "Άγνωστο")
+            movements_with_names.append((m, product_name))
+        
+        # Sort alphabetically by product name
+        movements_with_names.sort(key=lambda x: x[1].lower())
+        
+        display_idx = 0
+        for m, product_name in movements_with_names:
             # Apply filters
             if filter_val == "Εισαγωγές" and m['type'] != 'in':
                 continue
@@ -1368,9 +1378,9 @@ class StockManagerPro:
             if filter_val == "Τελευταία 7 ημέρες" and m_date < week_ago:
                 continue
             
-            product_name = next((p['name'] for p in self.products if p['id'] == m['product_id']), "Άγνωστο")
             type_text = "📥 Εισαγωγή" if m['type'] == 'in' else "📤 Εξαγωγή"
-            row_tag = "evenrow" if idx % 2 == 0 else "oddrow"
+            display_idx += 1
+            row_tag = "evenrow" if display_idx % 2 == 0 else "oddrow"
             
             self.movements_tree.insert("", tk.END, values=(
                 m['id'],
@@ -1387,7 +1397,11 @@ class StockManagerPro:
         
         filter_val = self.stock_filter.get() if hasattr(self, 'stock_filter') else "Όλα"
         
-        for idx, p in enumerate(self.products):
+        # Sort products alphabetically by name
+        sorted_products = sorted(self.products, key=lambda x: x['name'].lower())
+        
+        display_idx = 0
+        for p in sorted_products:
             product_id = p['id']
             total_in = sum(m['quantity'] for m in self.movements 
                           if m['product_id'] == product_id and m['type'] == 'in')
@@ -1402,8 +1416,9 @@ class StockManagerPro:
             if filter_val == "Μόνο OK" and current_stock < p['min_limit']:
                 continue
             
+            display_idx += 1
             tag = "low" if current_stock < p['min_limit'] else "ok"
-            row_tag = "evenrow" if idx % 2 == 0 else "oddrow"
+            row_tag = "evenrow" if display_idx % 2 == 0 else "oddrow"
             
             self.stock_tree.insert("", tk.END, values=(
                 p['name'],
